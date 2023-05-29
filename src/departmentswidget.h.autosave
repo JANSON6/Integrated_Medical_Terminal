@@ -1,0 +1,13 @@
+#ifndef DEPARTMENTSWIDGET_H
+#define DEPARTMENTSWIDGET_H
+
+
+class DepartmentsWidget
+{
+public:
+    DepartmentsWidget();
+    
+    int exec();
+};
+
+#endif // DEPARTMENTSWIDGET_H

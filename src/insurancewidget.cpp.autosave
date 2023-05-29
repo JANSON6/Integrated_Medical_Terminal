@@ -1,0 +1,38 @@
+#include "insurancewidget.h"
+
+InsuranceWidget::InsuranceWidget()
+{
+
+}
+
+//-----------cue-3 next-4
+int InsuranceWidget::exec()
+{
+    while(1)
+    {
+        Point touch_coord(-1, -1);  /* 触摸坐标 */
+
+        Touch::instance()->wait(touch_coord);
+
+        std::cout<<"touch coord ="<<touch_coord.x()<<"----"<<touch_coord.y()<<std::endl;
+
+
+        if(touch_coord.x() > 97 && touch_coord.y() >66 && touch_coord.x() < 694 && touch_coord.y() < 406)
+        {//医保按钮
+
+            PR_Fsm::instance()->handleEvent(4);
+            PersonalDetailsWidget pdw;
+            if(pdw.exec())
+            {
+                return 1;
+            }
+        }
+        else if(touch_coord.x() > 10 && touch_coord.y() >423 && touch_coord.x() < 110 && touch_coord.y() < 474)
+        {//返回按钮
+
+            PR_Fsm::instance()->handleEvent(11);
+            return 0;
+        }
+    }
+
+}

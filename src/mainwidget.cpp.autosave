@@ -1,0 +1,32 @@
+#include "mainwidget.h"
+
+MainWidget::MainWidget()
+{
+
+}
+
+//-----cur-0 next-1
+int MainWidget::exec()
+{
+    while(1)
+    {
+        Point touch_coord(-1, -1);  /* ´¥Ãþ×ø±ê */
+
+        Touch::instance()->wait(touch_coord);
+
+        std::cout<<"touch coord ="<<touch_coord.x()<<"----"<<touch_coord.y()<<std::endl;
+
+
+        if(touch_coord.x() > 62 && touch_coord.y() >87 && touch_coord.x() < 265 && touch_coord.y() < 190)
+        {//ÃÅÕï¹ÒºÅ°´Å¥
+
+            PR_Fsm::instance()->handleEvent(1);
+
+            //µÇÂ¼½çÃæ
+            LoginWidget lw;
+            lw.exec();
+        }
+
+    }
+
+}
